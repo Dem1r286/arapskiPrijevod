@@ -1,0 +1,42 @@
+{
+  "Header": {
+    "home": "Početna",
+    "services": "Usluge",
+    "prices": "Cijene",
+    "contact": "Kontakt",
+    "title": "dr.sci. Emir Demir",
+    "subtitle": "Stalni sudski tumač za arapski jezik"
+  },
+
+  "Services": {
+    "service1": {
+      "title": "Prijevod i ovjera službenih dokumenata",
+      "description": "Prijevod i ovjera službenih dokumenata s arapskog jezika na bosanski, hrvatski ili srpski jezik, i obratno, u skladu sa službenim jezicima Bosne i Hercegovine."
+    },
+    "service2": {
+      "title": "Usmeni / simultani prijevod",
+      "description": "Usmeni/simultani prijevod prilikom sklapanja svih vrsta ugovora, davanja izjava i izdavanja različitih dokumenata kod notara i advokata"
+    },
+    "service3": {
+      "title": "Neslužbeni prijevod",
+      "description": "Brzi i kvalitetni prijevodi knjiga, članaka, literature, tekstova i drugih neslužbenih dokumenata, bez potrebe za ovjerom."
+    },
+    "service4": {
+      "title": "Usmeni / simultani prijevod za potrebe suda",
+      "description": "Specijalizirani sudski prijevodi i simultano prevođenje za potrebe suđenja, ročišta i službenih postupaka."
+    },
+    "service5": {
+      "title": "Dodatni prijevod",
+      "description": "Dodatne usluge prevođenja i lekture prema potrebama klijenata, uključujući prijevod s osmansko-turskog jezika."
+    },
+    "contactButton": "Kontaktirajte nas"
+  },
+
+    "Hero": {
+    "welcome": "Dobrodošli",
+    "h1-1": "Stalni sudski tumač za arapski jezik",
+    "h1-2": "na području Bosne i Hercegovine",
+    "subtext": "Prijevod i ovjera službenih dokumenata, usmeni i simultani prijevodi za potrebe sudova, notara i advokata, kao i neslužbeni prijevodi knjiga i stručne literature.",
+    "button": "Saznajte više"
+  }
+}
