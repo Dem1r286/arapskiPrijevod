@@ -1,12 +1,19 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
+import "../../../i18n";
 
-export default function ImageGallery() {
-      const router = useRouter();
-    
-      const handleClick = () => {
+export default function DodatneOvjereButton() {
+    const { t, ready } = useTranslation();
+
+    if (!ready) return null;
+
+
+    const router = useRouter();
+
+    const handleClick = () => {
         router.push("/dodatneOvjere");
-      };
+    };
     return (
         <div className="flex items-center justify-center items-center flex-col w-full my-70">
             <div
@@ -23,7 +30,7 @@ export default function ImageGallery() {
                     {/* Main black card */}
                     <div className="relative flex justify-between items-center bg-[#202020] text-white px-10 py-6 gap-20 rounded-[21px] border-[2px] border-white">
                         <p className="text-3xl font-medium bg-transform transition-transform duration-200 hover:scale-105">
-                            Uputstvo za dodatne ovjere <br /> možete pronaći ovdje.
+                             {t("dodatneOvjereButton.text-1")} <br />  {t("dodatneOvjereButton.text-2")} 
                         </p>
                         <img
                             src="/right-up-arrow.png"

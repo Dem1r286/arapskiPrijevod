@@ -32,11 +32,29 @@
     "contactButton": "Kontaktirajte nas"
   },
 
-    "Hero": {
+  "Hero": {
     "welcome": "Dobrodošli",
     "h1-1": "Stalni sudski tumač za arapski jezik",
     "h1-2": "na području Bosne i Hercegovine",
     "subtext": "Prijevod i ovjera službenih dokumenata, usmeni i simultani prijevodi za potrebe sudova, notara i advokata, kao i neslužbeni prijevodi knjiga i stručne literature.",
     "button": "Saznajte više"
+  },
+
+  "Price": {
+    "price-1": "Cijena prijevoda",
+    "price-2": "prema dogovoru",
+    "price-3": "u zavisnosti od složenosti",
+    "price-4": "i roka isporuke.",
+    "subtext": "Dokumente možete dostaviti lično ili poslati skenirane. Prilikom preuzimanja ovjerenog prijevoda, potrebno je predočiti original ili ovjerenu kopiju dokumenta. Svaki prijevod se ovjerava pečatom sudskog tumača, a rok zavisi od obima i složenosti teksta."
+  },
+
+  "dodatneOvjereButton": {
+    "text-1": "Uputstvo za dodatne ovjere",
+    "text-2": "možete pronaći ovdje."
+  },
+  
+  "TrustSection": {
+    "text-1": "20 godina",
+    "text-2": "iskustva"
   }
 }

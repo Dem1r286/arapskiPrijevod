@@ -87,18 +87,13 @@ export default function Footer() {
                 className={`relative w-screen overflow-hidden z-10 mt-[150px] transition-all duration-300 ${isHomePage ? "h-[40vh]" : "h-[20vh]"
                     }`}
             >
-                <img
-                    src="/map.png"
-                    alt="Map"
-                    className="w-screen h-full object-cover brightness-75 transition-transform duration-200 hover:scale-105 cursor-pointer"
-                    onClick={() =>
-                        window.open(
-                            "https://www.google.com/maps/place/Obala+Kulina+bana+22,+Sarajevo,+Bosnia+and+Herzegovina",
-                            "_blank"
-                        )
-                    }
-                />
-
+                <iframe
+                    src="https://snazzymaps.com/embed/747857"
+                    className="absolute top-0 left-0 w-full h-full"
+                    style={{ border: "none"}}
+                    allowFullScreen
+                    title="Snazzy Map"
+                ></iframe>
 
                 <button
                     className="absolute top-20 left-[150px] bg-[#202020] text-white px-6 py-3 rounded-lg flex items-center gap-4 hover:scale-105 transition-transform duration-200 shadow-lg"
@@ -130,10 +125,14 @@ export default function Footer() {
                                     +387 61 353 525 <span className="text-[13px]">(Viber i WhatsApp)</span>
                                 </p>
                             </div>
-                            <div className="flex items-center gap-4">
+                            <div
+                                className="flex items-center gap-4 bg-transform transition-transform duration-200 hover:scale-105 cursor-pointer"
+                                onClick={() => window.open("https://www.facebook.com/emir.demir.716", "_blank")}
+                            >
                                 <img src="/facebook.png" alt="Logo" className="w-5 h-auto" />
                                 <p className="text-white tracking-wider">dr.sci. Emir Demir</p>
                             </div>
+
                         </div>
 
                         <div className="flex flex-col items-start">

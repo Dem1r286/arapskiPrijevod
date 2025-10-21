@@ -77,13 +77,8 @@ export default function Services() {
       initial="hidden"
       animate={controls}
       id="services"
-      className="flex items-center justify-center flex-col w-screen mt-20"
+      className="flex items-center justify-center flex-col w-screen"
     >
-      <motion.div
-        variants={itemVariants}
-        className="w-screen h-2 bg-[#464646] flex justify-between items-center mb-30"
-      ></motion.div>
-
       <div className="flex justify-center items-end flex-row gap-10 w-full max-w-[1600px] px-10">
         {/* Left side */}
         <motion.div variants={itemVariants} className="flex flex-col justify-between items-center">

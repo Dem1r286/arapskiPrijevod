@@ -1,10 +1,10 @@
 "use client";
 import { useEffect } from "react";
 import Hero from "@/components/homepage/Hero";
-import ImageGallery from "@/components/homepage/ImageGallery";
 import PriceSection from "@/components/homepage/PriceSection";
 import Services from "@/components/homepage/Services";
 import TrustSection from "@/components/homepage/TrustSection";
+import DodatneOvjereButton from "@/components/homepage/dodatneOvjereButton";
 
 export default function Home() {
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-between w-full relative mt-50">
       <Hero />
       <Services />
-      <ImageGallery />
+      <DodatneOvjereButton />
       <PriceSection />
       <TrustSection />
 

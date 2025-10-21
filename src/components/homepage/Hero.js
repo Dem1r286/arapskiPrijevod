@@ -3,15 +3,14 @@ import { useTranslation } from "react-i18next";
 import "../../../i18n";
 
 export default function Hero() {
-  const { t, ready } = useTranslation(); // check if translations are ready
+  const { t, ready } = useTranslation(); 
 
   const handleScroll = () => {
     const section = document.getElementById("services");
     if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
-  if (!ready) return null; // wait for i18n to load before rendering
-
+  if (!ready) return null; 
   return (
     <div className="relative w-screen h-[70vh] flex flex-col items-center text-center overflow-hidden">
       <div className="z-20 relative flex flex-col justify-center items-center px-4">

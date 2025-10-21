@@ -3,16 +3,22 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import "../../../i18n";
 
 export default function PriceSection() {
+  const { t, ready } = useTranslation();
+  
+  if (!ready) return null; 
+
   const lines = [
-    { text: "Cijena prijevoda", className: "text-5xl font-bold border-6 border-black px-5 py-4 rotate-[-5deg] bg-white whitespace-nowrap" },
-    { text: "prema dogovoru", className: "text-4xl font-black bg-[var(--secondary)] border-6 border-black px-5 py-3 rotate-[4deg] translate-x-[50px] whitespace-nowrap" },
-    { text: "u zavisnosti od složenosti", className: "text-2xl font-black bg-black text-white border-6 border-black px-5 py-2 rotate-[7deg] translate-x-[-5px] translate-y-[-5px] whitespace-nowrap" },
-    { text: "i roka isporuke.", className: "text-5xl font-bold border-6 border-black px-5 py-4 rotate-[2deg] bg-white translate-x-[-5px] translate-y-[-5px] whitespace-nowrap" },
+    { text: t("Price.price-1"), className: "text-5xl font-bold border-6 border-black px-5 py-4 rotate-[-5deg] bg-white whitespace-nowrap" },
+    { text:  t("Price.price-2"), className: "text-4xl font-black bg-[var(--secondary)] border-6 border-black px-5 py-3 rotate-[4deg] translate-x-[50px] whitespace-nowrap" },
+    { text:  t("Price.price-3"), className: "text-2xl font-black bg-black text-white border-6 border-black px-5 py-2 rotate-[7deg] translate-x-[-5px] translate-y-[-5px] whitespace-nowrap" },
+    { text:  t("Price.price-4"), className: "text-5xl font-bold border-6 border-black px-5 py-4 rotate-[2deg] bg-white translate-x-[-5px] translate-y-[-5px] whitespace-nowrap" },
   ];
 
-  const paragraph = "Dokumente možete dostaviti lično ili poslati skenirane. Prilikom preuzimanja ovjerenog prijevoda, potrebno je predočiti original ili ovjerenu kopiju dokumenta. Svaki prijevod se ovjerava pečatom sudskog tumača, a rok zavisi od obima i složenosti teksta.";
+  const paragraph =  t("Price.subtext");
 
   const totalCols = 8;
   const totalRows = 6;
@@ -32,7 +38,7 @@ export default function PriceSection() {
           const offsetPosition = elementPosition - headerOffset;
           window.scrollTo({ top: offsetPosition, behavior: "smooth" });
         }
-      }, 500); // small delay to ensure page and animations are ready
+      }, 500);
     }
   }, []);
 
@@ -109,12 +115,12 @@ export default function PriceSection() {
 
   const letterVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.03 } },
+    visible: { opacity: 1, transition: { duration: 0.015 } },
   };
 
   const paragraphContainer = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.02 } },
+    visible: { transition: { staggerChildren: 0.010 } },
   };
 
   return (
