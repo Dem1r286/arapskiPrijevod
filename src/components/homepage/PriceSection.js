@@ -7,18 +7,37 @@ import { useTranslation } from "react-i18next";
 import "../../../i18n";
 
 export default function PriceSection() {
-  const { t, ready } = useTranslation();
+  const { t, i18n, ready } = useTranslation(); // Destructure i18n
   
   if (!ready) return null; 
 
+  const isRTL = i18n.language === 'ar'; // Check if the current language is Arabic
+  
+  // Conditionally adjust rotations and translations for RTL
   const lines = [
-    { text: t("Price.price-1"), className: "text-5xl font-bold border-6 border-black px-5 py-4 rotate-[-5deg] bg-white whitespace-nowrap" },
-    { text:  t("Price.price-2"), className: "text-4xl font-black bg-[var(--secondary)] border-6 border-black px-5 py-3 rotate-[4deg] translate-x-[50px] whitespace-nowrap" },
-    { text:  t("Price.price-3"), className: "text-2xl font-black bg-black text-white border-6 border-black px-5 py-2 rotate-[7deg] translate-x-[-5px] translate-y-[-5px] whitespace-nowrap" },
-    { text:  t("Price.price-4"), className: "text-5xl font-bold border-6 border-black px-5 py-4 rotate-[2deg] bg-white translate-x-[-5px] translate-y-[-5px] whitespace-nowrap" },
+    { 
+      text: t("Price.price-1"), 
+      className: `text-5xl font-bold border-6 border-black px-5 py-4 whitespace-nowrap bg-white ${isRTL ? 'rotate-[5deg]' : 'rotate-[-5deg]'}`,
+      // For RTL, we want the rotation to be the mirror of LTR
+    },
+    { 
+      text: t("Price.price-2"), 
+      className: `text-4xl font-black bg-[var(--secondary)] border-6 border-black px-5 py-3 whitespace-nowrap ${isRTL ? 'rotate-[-4deg] translate-x-[-50px]' : 'rotate-[4deg] translate-x-[50px]'}`,
+      // For RTL, translate-x should be negative to move left
+    },
+    { 
+      text: t("Price.price-3"), 
+      className: `text-2xl font-black bg-black text-white border-6 border-black px-5 py-2 whitespace-nowrap translate-y-[-5px] ${isRTL ? 'rotate-[-7deg] translate-x-[5px]' : 'rotate-[7deg] translate-x-[-5px]'}`,
+      // For RTL, translate-x should be positive to move right
+    },
+    { 
+      text: t("Price.price-4"), 
+      className: `text-5xl font-bold border-6 border-black px-5 py-4 whitespace-nowrap bg-white translate-y-[-5px] ${isRTL ? 'rotate-[-2deg] translate-x-[5px]' : 'rotate-[2deg] translate-x-[-5px]'}`,
+      // For RTL, translate-x should be positive to move right
+    },
   ];
 
-  const paragraph =  t("Price.subtext");
+  const paragraph = t("Price.subtext");
 
   const totalCols = 8;
   const totalRows = 6;
@@ -101,7 +120,7 @@ export default function PriceSection() {
         letterControls.start("visible");
       }, (totalLinesDuration + 0.5) * 1000);
     }
-  }, [isInView, lineControls, moveUpControls, letterControls]);
+  }, [isInView, lineControls, moveUpControls, letterControls, lines.length]);
 
   // Variants
   const lineVariants = {
@@ -123,10 +142,24 @@ export default function PriceSection() {
     visible: { transition: { staggerChildren: 0.010 } },
   };
 
+  // Conditionally set flex-direction and text-alignment
+  const sectionDirectionClass = isRTL ? 'flex-row-reverse' : 'flex-row';
+  const textAlignmentClass = isRTL ? 'items-end text-right' : 'items-start text-left';
+
   return (
-    <div ref={sectionRef} id="priceSection" className="w-screen flex justify-center px-10 gap-50 max-w-[1700px] my-20">
-      {/* LEFT SIDE */}
-      <motion.div initial={{ y: 0 }} animate={moveUpControls} className="flex flex-col justify-center items-start text-black">
+    <div 
+      ref={sectionRef} 
+      id="priceSection" 
+      // Apply the conditional direction class to reverse the left and right sides
+      className={`w-screen flex justify-center px-10 gap-50 max-w-[1700px] my-20 ${sectionDirectionClass}`}
+    >
+      {/* LEFT SIDE (Content) - Now will be on the right in RTL */}
+      <motion.div 
+        initial={{ y: 0 }} 
+        animate={moveUpControls} 
+        // Apply text alignment class to align text correctly
+        className={`flex flex-col justify-center text-black ${textAlignmentClass}`}
+      >
         {lines.map((line, i) => (
           <motion.p
             key={i}
@@ -142,7 +175,7 @@ export default function PriceSection() {
 
         {/* Paragraph letter by letter */}
         <motion.p
-          className="max-w-[500px] text-[16px] mt-8 overflow-hidden"
+          className={`max-w-[500px] text-[16px] mt-8 overflow-hidden ${isRTL ? 'direction-rtl' : ''}`}
           initial="hidden"
           animate={letterControls}
           variants={paragraphContainer}
@@ -155,7 +188,7 @@ export default function PriceSection() {
         </motion.p>
       </motion.div>
 
-      {/* RIGHT SIDE: PUZZLE */}
+      {/* RIGHT SIDE (Puzzle) - Now will be on the left in RTL */}
       <div
         ref={puzzleRef}
         className="relative"

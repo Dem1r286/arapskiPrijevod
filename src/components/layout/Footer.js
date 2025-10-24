@@ -1,10 +1,15 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
+import "../../../i18n";
 
 export default function Footer() {
     const pathname = usePathname();
     const isHomePage = pathname === "/";
+    const { t, ready } = useTranslation();
+
+    if (!ready) return null;
 
     return (
         <div id="footer" className="w-screen flex flex-col items-center relative">
@@ -25,34 +30,35 @@ export default function Footer() {
                     />
 
                     <div className="flex justify-center items-center flex-col gap-2">
-                        <h2 className="text-5xl font-semibold text-center text-white">Kontaktirajte nas</h2>
+                        <h2 className="text-5xl font-semibold text-center text-white">{t("Contact.heading")}</h2>
                         <p className="text-center text-white w-[90%] text-[15px]">
-                            Popunite formu i pokrenite prvi korak ka uspješnoj saradnji. Odgovaramo u najkraćem roku.
+                            {t("Contact.subtext")}
                         </p>
                     </div>
 
                     <form className="w-[60%] flex flex-col justify-center gap-8 text-white ">
                         <input
                             type="text"
-                            placeholder="Ime i prezime"
+                            placeholder={t("Contact.placeholderName")}
                             className="w-full bg-[#313131] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ff582f]"
                         />
                         <input
                             type="text"
-                            placeholder="Broj telefona"
+                            placeholder={t("Contact.placeholderPhone")}
                             className="w-full bg-[#313131] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ff582f]"
                         />
                         <input
                             type="email"
-                            placeholder="Email"
+                            placeholder={t("Contact.placeholderEmail")}
                             className="w-full bg-[#313131] rounded-lg px-4 py-3 mb-5 focus:outline-none focus:ring-2 focus:ring-[#ff582f]"
                         />
                         <textarea
-                            placeholder="Poruka"
+                            placeholder={t("Contact.placeholderMessage")}
                             rows="4"
                             className="w-full min-h-[250px] bg-[#313131] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ff582f] resize-none"
                         ></textarea>
                     </form>
+
 
                     <div className="flex justify-between items-center flex-row w-[70%]">
                         <div className="flex justify-center items-center flex-row gap-6">
@@ -75,7 +81,7 @@ export default function Footer() {
 
                         <div className="flex justify-center items-center flex-row gap-6">
                             <button className="flex justify-center items-center bg-[var(--secondary)] px-8 py-2 rounded-[12px] border-3 border-white font-semibold text-md transition-transform duration-200 hover:scale-105 cursor-pointer">
-                                <p>Pošaljite</p>
+                                <p>{t("Contact.button")}</p>
                             </button>
                         </div>
                     </div>
@@ -90,7 +96,7 @@ export default function Footer() {
                 <iframe
                     src="https://snazzymaps.com/embed/747857"
                     className="absolute top-0 left-0 w-full h-full"
-                    style={{ border: "none"}}
+                    style={{ border: "none" }}
                     allowFullScreen
                     title="Snazzy Map"
                 ></iframe>
@@ -104,7 +110,7 @@ export default function Footer() {
                         )
                     }
                 >
-                    <p>Otvorite lokaciju na Google Maps</p>
+                    <p>{t("Footer.locationButton")}</p>
                     <span className="h-[2px] w-[30px] bg-white"></span>
                 </button>
             </div>
@@ -114,7 +120,7 @@ export default function Footer() {
                 <div className="flex justify-between items-center w-full max-w-[1500px] px-10 md:px-20">
                     <div className="flex justify-between items-start flex-row gap-20 md:gap-60 text-[15px]">
                         <div className="flex flex-col items-start gap-3">
-                            <p className="text-[#5B5B5B] mb-2 text-[17px]">KONTAKT</p>
+                            <p className="text-[#5B5B5B] mb-2 text-[17px]">{t("Footer.headingContact")}</p>
                             <div className="flex items-center gap-4">
                                 <img src="/email.png" alt="Logo" className="w-5 h-auto" />
                                 <p className="text-white tracking-wider">emirdemirarapski@gmail.com</p>
@@ -136,7 +142,7 @@ export default function Footer() {
                         </div>
 
                         <div className="flex flex-col items-start">
-                            <p className="text-[#5B5B5B] mb-5 text-[17px]">LOKACIJA</p>
+                            <p className="text-[#5B5B5B] mb-5 text-[17px]">{t("Footer.headingLocation")}</p>
                             <div className="flex flex-col items-start text-white text-[15px] tracking-wider">
                                 <p>Obala Kulina bana 22</p>
                                 <p>71000 Sarajevo</p>

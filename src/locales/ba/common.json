@@ -52,9 +52,74 @@
     "text-1": "Uputstvo za dodatne ovjere",
     "text-2": "možete pronaći ovdje."
   },
-  
+
   "TrustSection": {
     "text-1": "20 godina",
     "text-2": "iskustva"
+  },
+
+  "Contact": {
+    "heading": "Kontaktirajte nas",
+    "subtext": "Popunite formu i pokrenite prvi korak ka uspješnoj saradnji. Odgovaramo u najkraćem roku.",
+    "placeholderName": "Ime i prezime",
+    "placeholderPhone": "Broj telefona",
+    "placeholderEmail": "Email",
+    "placeholderMessage": "Poruka",
+    "button": "Pošaljite"
+  },
+
+  "Footer": {
+    "locationButton": "Otvorite lokaciju na Google Maps",
+    "headingContact": "KONTAKT",
+    "headingLocation": "LOKACIJA"
+  },
+
+  "UslugePage": {
+    "heading": "Usluge prijevoda",
+    "subheading": "Prijevod svih vrsta dokumenata i tekstova sa i na arapski jezik",
+    "dokumenti": [
+      "Izvodi iz matičnih knjiga (rođenih, vjenčanih, umrlih)",
+      "Uvjerenja o državljanstvu",
+      "Uvjerenja o nekažnjavanju",
+      "Uvjerenja o nevođenju krivičnog postupka",
+      "Sudska rješenja i presude",
+      "Ovlaštenja i punomoći",
+      "Ugovori",
+      "Izjave i saglasnosti",
+      "Potvrde i certifikati",
+      "Svjedočanstva završenih razreda srednje škole",
+      "Diplome i dodaci diplomi",
+      "Uvjerenja o položenim ispitima",
+      "Nastavni planovi i programi fakulteta",
+      "Potvrde o redovnom školovanju (osnovne i srednje škole, fakulteti)",
+      "Potvrde o stanju računa u banci",
+      "Potvrde o stalnom zaposlenju",
+      "Vozačke dozvole",
+      "Saobraćajne dozvole",
+      "Ljekarski nalazi",
+      "Registracije privrednih društava",
+      "Izvodi iz sudskih registara",
+      "Bilansi - završni račun, bilans uspjeha",
+      "Katalozi i brošure",
+      "I drugi dokumenti koja se podnose nadležnim organima u inostranstvu ili BiH"
+    ],
+    "oblastiIntro": "Također, vrše se prijevodi iz raznih životnih oblasti, kao što su:",
+    "oblasti": [
+      "Vanjska trgovina",
+      "Ekonomija",
+      "Pravo",
+      "Bankarstvo i finansije",
+      "Marketing",
+      "Društvene nauke",
+      "Medicina",
+      "Tehnička dokumentacija"
+    ],
+    "bottomNotice": "Pri preuzimanju ovjerenih prijevoda, dostaviti na uvid original ili ovjerenu kopiju dokumenta."
+  },
+
+  "DodatneOvjerePage": {
+    "locationButton": "Otvorite lokaciju na Google Maps",
+    "headingContact": "KONTAKT",
+    "headingLocation": "LOKACIJA"
   }
 }

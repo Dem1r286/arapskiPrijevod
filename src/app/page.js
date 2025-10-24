@@ -31,13 +31,21 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-between w-full relative mt-50">
+      {/* Background image positioned just below hero text */}
+      <img
+        src="/herobackground.png"
+        alt="Hero Background"
+        className="absolute top-[-8%] object-cover h-screen w-screen"
+      />
+
       <Hero />
+
       <Services />
       <DodatneOvjereButton />
       <PriceSection />
       <TrustSection />
 
-      {/* Background behind the transition */}
+      {/* Footer background */}
       <div className="absolute left-[-20vh] bottom-[-50vh] w-[50vw] h-[130vh] bg-[url('/footerbackground.png')] bg-no-repeat bg-contain z-0"></div>
     </div>
   );

@@ -29,12 +29,6 @@ export default function Hero() {
           {t("Hero.button")}
         </button>
       </div>
-
-      <img
-        src="/herobackground.png"
-        alt="Hero Background"
-        className="absolute bottom-20 left-0 w-full h-full object-cover -rotate-3 z-0"
-      />
     </div>
   );
 }

@@ -17,23 +17,42 @@ export default function Header() {
   const lastScrollY = useRef(0);
   const [showHeader, setShowHeader] = useState(true);
 
+  // Define a threshold for scrolling before hiding the header
+  const HIDE_THRESHOLD = 50; 
+
   useEffect(() => {
     const current = i18n.language || "ba";
     setLang(current.toUpperCase());
   }, [i18n.language]);
 
-  // Detect scroll direction
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY.current) {
-        setScrollDir("down");
-        setShowHeader(false);
+      const currentScrollY = window.scrollY;
+
+      if (Math.abs(currentScrollY - lastScrollY.current) < 10) {
+        // Ignore very small scroll movements
+        return;
+      }
+      
+      // LOGIC FIX: Only allow hiding if we are scrolled past the threshold
+      if (currentScrollY > HIDE_THRESHOLD) {
+        if (currentScrollY > lastScrollY.current) {
+          // Scrolling DOWN
+          setScrollDir("down");
+          setShowHeader(false);
+        } else if (currentScrollY < lastScrollY.current) {
+          // Scrolling UP
+          setScrollDir("up");
+          setShowHeader(true);
+        }
       } else {
-        setScrollDir("up");
+        // Always show the header when near the top of the page
         setShowHeader(true);
       }
-      lastScrollY.current = window.scrollY;
+      
+      lastScrollY.current = currentScrollY;
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -42,6 +61,7 @@ export default function Header() {
     const newLang = lang === "AR" ? "BA" : "AR";
     setLang(newLang);
     i18n.changeLanguage(newLang.toLowerCase());
+    // No need to add extra logic here, the handleScroll fix addresses the root cause
   };
 
   const scrollToPrice = () => {

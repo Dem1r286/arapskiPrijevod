@@ -6,7 +6,8 @@ import { useTranslation } from "react-i18next";
 import "../../../i18n";
 
 export default function Services() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === "ar";
 
   const allServices = [
     {
@@ -45,7 +46,7 @@ export default function Services() {
 
   // ---- SCROLL ANIMATION ----
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
+  const inView = useInView(ref, { once: true, amount: 0.5 });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -70,6 +71,9 @@ export default function Services() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+  const rtlClass = isArabic ? "flex-row-reverse" : "flex-row";
+  const contentAlignClass = isArabic ? "items-end" : "items-start"; 
+
   return (
     <motion.div
       ref={ref}
@@ -77,12 +81,14 @@ export default function Services() {
       initial="hidden"
       animate={controls}
       id="services"
-      className="flex items-center justify-center flex-col w-screen"
+      className={`flex items-center justify-center flex-col w-screen ${isArabic ? "text-right" : "text-left"}`}
     >
-      <div className="flex justify-center items-end flex-row gap-10 w-full max-w-[1600px] px-10">
-        {/* Left side */}
+      <div className={`flex justify-center items-end gap-10 w-full max-w-[1600px] px-10 ${rtlClass}`}>
+        
+
         <motion.div variants={itemVariants} className="flex flex-col justify-between items-center">
           <div
+            dir="ltr"
             className="flex items-center overflow-hidden h-[320px] cursor-pointer select-none mb-28 relative"
             onClick={handleBigNumberClick}
           >
@@ -125,7 +131,7 @@ export default function Services() {
             onClick={() => {
               const el = document.getElementById("footer");
               if (el) {
-                const headerOffset = 600; // same as in Header
+                const headerOffset = 600; 
                 const elementPosition = el.getBoundingClientRect().top + window.scrollY;
                 const offsetPosition = elementPosition - headerOffset;
                 window.scrollTo({ top: offsetPosition, behavior: "smooth" });
@@ -136,16 +142,19 @@ export default function Services() {
           </motion.button>
         </motion.div>
 
-        {/* Right side */}
-        <motion.div variants={itemVariants} className="flex justify-center items-start flex-col gap-2 max-w-4xl w-full min-h-[250px]">
+
+        <motion.div variants={itemVariants} className={`flex justify-center ${contentAlignClass} flex-col gap-2 max-w-4xl w-full min-h-[250px]`}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeService.id}
-              initial={{ x: 100, opacity: 0 }}
+
+              initial={{ x: isArabic ? -100 : 100, opacity: 0 }} 
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -100, opacity: 0 }}
+              exit={{ x: isArabic ? 100 : -100, opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="flex flex-col justify-end items-start min-h-[180px] w-full gap-2"
+    
+              className={`flex flex-col justify-end ${contentAlignClass} min-h-[180px] w-full gap-2`}
+              style={{ textAlign: isArabic ? "right" : "left" }} 
             >
               <p className="font-medium text-[40px]">{activeService.title}</p>
               <p className="text-base">{activeService.description}</p>
@@ -157,11 +166,12 @@ export default function Services() {
               <div key={service.id} className="w-full">
                 <div className="w-full h-[1px] bg-black"></div>
                 <div
-                  className="flex justify-between items-center w-full px-3 py-2 bg-transform transition-transform duration-200 hover:scale-105 cursor-pointer h-[60px]"
+                  className={`flex justify-between items-center w-full px-3 py-2 bg-transform transition-transform duration-200 hover:scale-105 cursor-pointer h-[60px] ${isArabic ? "flex-row-reverse" : ""}`}
                   onClick={() => handleSelect(service.id)}
                 >
                   <p className="font-medium text-xl">{service.title}</p>
                   <p
+                    dir="ltr"
                     className="font-medium text-[30px] font-mono"
                     style={{
                       WebkitTextStroke: "1px black",
