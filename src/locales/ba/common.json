@@ -1,0 +1,135 @@
+{
+  "Header": {
+    "home": "Početna",
+    "services": "Usluge",
+    "prices": "Cijene",
+    "contact": "Kontakt",
+    "title": "dr.sci. Emir Demir",
+    "subtitle": "Stalni sudski tumač za arapski jezik"
+  },
+
+  "Services": {
+    "service1": {
+      "title": "Prijevod službenih dokumenata",
+      "description": "Prijevod i ovjera službenih dokumenata s arapskog jezika na bosanski, hrvatski ili srpski jezik, i obratno, u skladu sa službenim jezicima BiH."
+    },
+    "service2": {
+      "title": "Usmeni / simultani prijevod",
+      "description": "Usmeni/simultani prijevod prilikom sklapanja svih vrsta ugovora, davanja izjava i izdavanja različitih dokumenata kod notara i advokata."
+    },
+    "service3": {
+      "title": "Neslužbeni prijevod",
+      "description": "Brzi i kvalitetni prijevodi knjiga, članaka, literature, tekstova i drugih neslužbenih dokumenata, bez potrebe za ovjerom."
+    },
+    "service4": {
+      "title": "Sudski usmeni / simultani prijevod",
+      "description": "Specijalizirani sudski prijevodi i simultano prevođenje za potrebe suđenja, ročišta i službenih postupaka."
+    },
+    "service5": {
+      "title": "Dodatni prijevodi",
+      "description": "Dodatne usluge prevođenja i lekture prema potrebama klijenata, uključujući prijevod s osmansko-turskog jezika."
+    },
+    "contactButton": "Kontaktirajte nas"
+  },
+
+  "Hero": {
+    "welcome": "Dobrodošli",
+    "h1-1": "Stalni sudski tumač za arapski jezik",
+    "h1-2": "na području Bosne i Hercegovine",
+    "subtext": "Prijevod i ovjera službenih dokumenata, usmeni i simultani prijevodi za potrebe sudova, notara i advokata, kao i neslužbeni prijevodi knjiga i stručne literature.",
+    "button": "Saznajte više"
+  },
+
+  "Price": {
+    "price-1": "Cijena prijevoda",
+    "price-2": "prema dogovoru",
+    "price-3": "u zavisnosti od složenosti",
+    "price-4": "i roka isporuke.",
+    "subtext": "Dokumente možete dostaviti lično ili poslati skenirane. Prilikom preuzimanja ovjerenog prijevoda, potrebno je predočiti original ili ovjerenu kopiju dokumenta. Svaki prijevod se ovjerava pečatom sudskog tumača, a rok zavisi od obima i složenosti teksta."
+  },
+
+  "dodatneOvjereButton": {
+    "text-1": "Uputstvo za dodatne ovjere",
+    "text-2": "možete pronaći ovdje."
+  },
+
+  "TrustSection": {
+    "text-1": "20 godina",
+    "text-2": "iskustva"
+  },
+
+  "Contact": {
+    "heading": "Kontaktirajte nas",
+    "subtext": "Popunite formu i pokrenite prvi korak ka uspješnoj saradnji. Odgovaramo u najkraćem roku.",
+    "placeholderName": "Ime i prezime",
+    "placeholderPhone": "Broj telefona",
+    "placeholderEmail": "Email",
+    "placeholderMessage": "Poruka",
+    "button": "Pošaljite",
+    "contact-1": "Ili nas kontaktirajte direktno putem",
+    "contact-2": "Viber-a ili WhatsApp-a"
+  },
+
+  "Footer": {
+    "locationButton": "Otvorite lokaciju na Google Maps",
+    "headingContact": "KONTAKT",
+    "headingLocation": "LOKACIJA"
+  },
+
+  "UslugePage": {
+    "heading": "Usluge prijevoda",
+    "subheading": "Prijevod svih vrsta dokumenata i tekstova sa i na arapski jezik",
+    "dokumenti": [
+      "Izvodi iz matičnih knjiga (rođenih, vjenčanih, umrlih)",
+      "Uvjerenja o državljanstvu",
+      "Uvjerenja o nekažnjavanju",
+      "Uvjerenja o nevođenju krivičnog postupka",
+      "Sudska rješenja i presude",
+      "Ovlaštenja i punomoći",
+      "Ugovori",
+      "Izjave i saglasnosti",
+      "Potvrde i certifikati",
+      "Svjedočanstva završenih razreda srednje škole",
+      "Diplome i dodaci diplomi",
+      "Uvjerenja o položenim ispitima",
+      "Nastavni planovi i programi fakulteta",
+      "Potvrde o redovnom školovanju (osnovne i srednje škole, fakulteti)",
+      "Potvrde o stanju računa u banci",
+      "Potvrde o stalnom zaposlenju",
+      "Vozačke dozvole",
+      "Saobraćajne dozvole",
+      "Ljekarski nalazi",
+      "Registracije privrednih društava",
+      "Izvodi iz sudskih registara",
+      "Bilansi - završni račun, bilans uspjeha",
+      "Katalozi i brošure",
+      "I drugi dokumenti koja se podnose nadležnim organima u inostranstvu ili BiH"
+    ],
+    "oblastiIntro": "Također, vrše se prijevodi iz raznih životnih oblasti, kao što su:",
+    "oblasti": [
+      "Vanjska trgovina",
+      "Ekonomija",
+      "Pravo",
+      "Bankarstvo i finansije",
+      "Marketing",
+      "Društvene nauke",
+      "Medicina",
+      "Tehnička dokumentacija"
+    ],
+    "bottomNotice": "Pri preuzimanju ovjerenih prijevoda, dostaviti na uvid original ili ovjerenu kopiju dokumenta."
+  },
+
+  "DodatneOvjerePage": {
+    "locationButton": "Otvorite lokaciju na Google Maps",
+    "headingContact": "KONTAKT",
+    "headingLocation": "LOKACIJA"
+  },
+
+    "Errors": {
+    "name": "Molimo unesite ime i prezime.",
+    "phone": "Molimo unesite ispravan broj telefona.",
+    "email": "Molimo unesite ispravan e-mail.",
+    "message": "Molimo napišite poruku.",
+    "check": "Provjerite unesene podatke."
+  }
+}
