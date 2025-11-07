@@ -48,31 +48,7 @@ export const metadata = {
     "Pružamo usluge prijevoda sa i na arapski jezik, uključujući dokumente, knjige, članke i usmene/simultane prijevode. Saznajte više o našim uslugama.",
   icons: {
     icon: "/icons/favicon.webp",
-  },
-  openGraph: {
-    title: "Stalni sudski tumač za arapski jezik u BiH",
-    description:
-      "Profesionalni prijevodi sa i na arapski jezik — dokumenti, usmeni i simultani prijevodi.",
-    url: "https://arapskiprijevod.ba",
-    siteName: "Tumač za arapski jezik BiH",
-    images: [
-      {
-        url: "/other/herobackground.webp",
-        width: 1200,
-        height: 630,
-        alt: "Stalni sudski tumač za arapski jezik u BiH",
-      },
-    ],
-    locale: "bs_BA",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Stalni sudski tumač za arapski jezik u BiH",
-    description:
-      "Profesionalni prijevodi sa i na arapski jezik — dokumenti, usmeni i simultani prijevodi.",
-    images: ["/other/herobackground.webp"],
-  },
+  }
 };
 
 
