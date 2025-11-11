@@ -63,8 +63,6 @@ export default function DodatneOvjereButton() {
               {t("dodatneOvjereButton.text-2")}
             </p>
 
-
-            {/* ✅ Use Next.js optimized Image */}
             <img
               src="/arrows/right-up-arrow.webp"
               alt="Arrow"

@@ -19,7 +19,7 @@ export default function PriceSection() {
   const isRTL = i18n.language === "ar";
 
   // Responsive puzzle piece size
-  const [pieceSize, setPieceSize] = useState(60); 
+  const [pieceSize, setPieceSize] = useState(60);
 
   useEffect(() => {
     const handleResize = () => {
@@ -206,7 +206,7 @@ export default function PriceSection() {
     >
       <motion.div
         initial={{ y: 0 }}
-         id="priceSection"
+        id="priceSection"
         animate={moveUpControls}
         className={`flex flex-col justify-center text-black ${textAlignmentClass}`}
       >
@@ -224,17 +224,33 @@ export default function PriceSection() {
         ))}
 
         <motion.p
-          className={`min-w-[320px] px-5 sm:px-10 md:px-5 max-w-[500px] text-[11px] sm:text-[12px] md:text-[14px] lg:text-[15px] mt-8 overflow-hidden ${isRTL ? "direction-rtl" : ""}`}
+          dir={isRTL ? "rtl" : "ltr"}
+          className={`min-w-[320px] px-5 sm:px-10 md:px-5 max-w-[500px] text-[11px] sm:text-[12px] md:text-[14px] lg:text-[15px] mt-8 overflow-hidden`}
+          style={{ textAlign: isRTL ? "right" : "left" }}
           initial="hidden"
           animate={letterControls}
           variants={paragraphContainer}
         >
-          {paragraph.split("").map((char, idx) => (
-            <motion.span key={idx} variants={letterVariants}>
-              {char}
-            </motion.span>
-          ))}
+          {isRTL
+            ? // Arabic: split by words
+            paragraph.split(" ").map((word, idx) => (
+              <motion.span
+                key={idx}
+                className="inline-block"
+                variants={letterVariants}
+                style={{ marginRight: "0.25em" }}
+              >
+                {word}
+              </motion.span>
+            ))
+            : // Bosnian/Latin: split by letters
+            paragraph.split("").map((char, idx) => (
+              <motion.span key={idx} variants={letterVariants}>
+                {char}
+              </motion.span>
+            ))}
         </motion.p>
+
       </motion.div>
 
       <div
