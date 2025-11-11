@@ -56,11 +56,13 @@ export default function DodatneOvjereButton() {
             className={`relative flex justify-between items-center bg-[#202020] text-white px-5 2xl:px-10 py-5 2xl:py-6 gap-2 xs:gap-5 sm:gap-10 md:gap-14 lg:gap-16 xl:gap-18 2xl:gap-20 rounded-[21px] border-[2px] border-white ${rtlFlexClass}`}
           >
             <p
+              dir={isArabic ? "rtl" : "ltr"}
               className={`text-sm ssm:text-[17px] md:text-xl lg:text-2xl 2xl:text-3xl font-medium bg-transform transition-transform duration-200 hover:scale-105 ${rtlTextClass}`}
             >
-              {t("dodatneOvjereButton.text-1")} <br />{" "}
+              {t("dodatneOvjereButton.text-1")} <br />
               {t("dodatneOvjereButton.text-2")}
             </p>
+
 
             {/* ✅ Use Next.js optimized Image */}
             <img
