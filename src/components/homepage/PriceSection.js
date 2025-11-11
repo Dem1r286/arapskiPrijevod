@@ -25,28 +25,13 @@ export default function PriceSection() {
     const handleResize = () => {
       const width = window.innerWidth;
 
-      if (width >= 1536) {
-        // 2xl screens — big monitors
-        setPieceSize(110);
-      } else if (width >= 1280) {
-        // xl screens — desktops
-        setPieceSize(100);
-      } else if (width >= 1024) {
-        // lg screens — laptops
-        setPieceSize(90);
-      } else if (width >= 768) {
-        // md screens — tablets
-        setPieceSize(80);
-      } else if (width >= 640) {
-        // sm screens — large phones / small tablets
-        setPieceSize(70);
-      } else if (width >= 360) {
-        // xs screens — regular phones
-        setPieceSize(60);
-      } else {
-        // super small screens
-        setPieceSize(50);
-      }
+      if (width >= 1536) setPieceSize(110);
+      else if (width >= 1280) setPieceSize(100);
+      else if (width >= 1024) setPieceSize(90);
+      else if (width >= 768) setPieceSize(80);
+      else if (width >= 640) setPieceSize(70);
+      else if (width >= 360) setPieceSize(60);
+      else setPieceSize(50);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -56,23 +41,19 @@ export default function PriceSection() {
   const lines = [
     {
       text: t("Price.price-1"),
-      className: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold border-6 border-black px-5 py-3 sm:py-4 whitespace-nowrap bg-white ${isRTL ? "rotate-[5deg]" : "rotate-[-5deg]"
-        } text-center`,
+      className: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold border-6 border-black px-5 py-3 sm:py-4 whitespace-nowrap bg-white ${isRTL ? "rotate-[5deg]" : "rotate-[-5deg]"} text-center`,
     },
     {
       text: t("Price.price-2"),
-      className: `text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black bg-[var(--secondary)] border-6 border-black px-5 py-2 sm:py-3 whitespace-nowrap ${isRTL ? "rotate-[-4deg] translate-x-[-50px]" : "rotate-[4deg] translate-x-[40px]"
-        } text-center`,
+      className: `text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black bg-[var(--secondary)] border-6 border-black px-5 py-2 sm:py-3 whitespace-nowrap ${isRTL ? "rotate-[-4deg] translate-x-[-50px]" : "rotate-[4deg] translate-x-[40px]"} text-center`,
     },
     {
       text: t("Price.price-3"),
-      className: `text-md sm:text-lg md:text-xl lg:text-2xl font-black bg-black text-white border-6 border-black px-5 py-1 sm:py-2 whitespace-nowrap translate-y-[-5px] ${isRTL ? "rotate-[-7deg] translate-x-[5px]" : "rotate-[7deg] translate-x-[-5px]"
-        } text-center`,
+      className: `text-md sm:text-lg md:text-xl lg:text-2xl font-black bg-black text-white border-6 border-black px-5 py-1 sm:py-2 whitespace-nowrap translate-y-[-5px] ${isRTL ? "rotate-[-7deg] translate-x-[5px]" : "rotate-[7deg] translate-x-[-5px]"} text-center`,
     },
     {
       text: t("Price.price-4"),
-      className: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold border-6 border-black px-5 py-3 sm:py-4 whitespace-nowrap bg-white translate-y-[-5px] ${isRTL ? "rotate-[-2deg] translate-x-[5px]" : "rotate-[2deg] translate-x-[-5px]"
-        } text-center`,
+      className: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold border-6 border-black px-5 py-3 sm:py-4 whitespace-nowrap bg-white translate-y-[-5px] ${isRTL ? "rotate-[-2deg] translate-x-[5px]" : "rotate-[2deg] translate-x-[-5px]"} text-center`,
     },
   ];
 
@@ -142,26 +123,21 @@ export default function PriceSection() {
     setPieces(temp.sort(() => Math.random() - 0.5));
   }, [pieceSize]);
 
-  // Animate lines and puzzles when in view
+  // Animate lines, puzzles, and paragraph
   useEffect(() => {
     if (isInView && mounted) {
       lineControls.start("visible");
       setAnimatePuzzles(true);
+      moveUpControls.start({
+        y: 30,
+        transition: { type: "spring", stiffness: 100, damping: 12 },
+      });
 
-      const totalLinesDuration = lines.length * 0.5;
-
-      setTimeout(() => {
-        moveUpControls.start({
-          y: 30,
-          transition: { type: "spring", stiffness: 100, damping: 12 },
-        });
-      }, totalLinesDuration * 1000);
-
-      setTimeout(() => {
-        letterControls.start("visible");
-      }, (totalLinesDuration + 0.5) * 1000);
+      // Start paragraph animation immediately
+      letterControls.set("hidden");
+      letterControls.start("visible");
     }
-  }, [isInView, mounted]);
+  }, [isInView, mounted, i18n.language]);
 
   const lineVariants = {
     hidden: { opacity: 0, y: 100 },
@@ -189,15 +165,8 @@ export default function PriceSection() {
   };
 
   // Responsive direction and alignment
-  const sectionDirectionClass = `
-    ${isRTL ? "xl:flex-row-reverse" : "xl:flex-row"} 
-    flex-col items-center justify-center
-  `;
-
-  const textAlignmentClass = `
-    ${isRTL ? "text-right xl:items-end xl:text-left" : "text-left xl:items-start xl:text-left"}
-    flex flex-col items-center justify-center
-  `;
+  const sectionDirectionClass = `${isRTL ? "xl:flex-row-reverse" : "xl:flex-row"} flex-col items-center justify-center`;
+  const textAlignmentClass = `${isRTL ? "text-right xl:items-end xl:text-left" : "text-left xl:items-start xl:text-left"} flex flex-col items-center justify-center`;
 
   return (
     <div
@@ -224,33 +193,31 @@ export default function PriceSection() {
         ))}
 
         <motion.p
+          key={i18n.language} // force remount on language change
           dir={isRTL ? "rtl" : "ltr"}
-          className={`min-w-[320px] px-5 sm:px-10 md:px-5 max-w-[500px] text-[11px] sm:text-[12px] md:text-[14px] lg:text-[15px] mt-8 overflow-hidden`}
+          className="min-w-[320px] px-5 sm:px-10 md:px-5 max-w-[500px] text-[11px] sm:text-[12px] md:text-[14px] lg:text-[15px] mt-8 overflow-hidden"
           style={{ textAlign: isRTL ? "right" : "left" }}
           initial="hidden"
           animate={letterControls}
           variants={paragraphContainer}
         >
           {isRTL
-            ? // Arabic: split by words
-            paragraph.split(" ").map((word, idx) => (
-              <motion.span
-                key={idx}
-                className="inline-block"
-                variants={letterVariants}
-                style={{ marginRight: "0.25em" }}
-              >
-                {word}
-              </motion.span>
-            ))
-            : // Bosnian/Latin: split by letters
-            paragraph.split("").map((char, idx) => (
-              <motion.span key={idx} variants={letterVariants}>
-                {char}
-              </motion.span>
-            ))}
+            ? paragraph.split(" ").map((word, idx) => (
+                <motion.span
+                  key={idx}
+                  className="inline-block"
+                  variants={letterVariants}
+                  style={{ marginRight: "0.25em" }}
+                >
+                  {word}
+                </motion.span>
+              ))
+            : paragraph.split("").map((char, idx) => (
+                <motion.span key={idx} variants={letterVariants}>
+                  {char}
+                </motion.span>
+              ))}
         </motion.p>
-
       </motion.div>
 
       <div
@@ -275,11 +242,11 @@ export default function PriceSection() {
               animatePuzzles
                 ? { x: piece.targetX, y: piece.targetY, opacity: 1, rotate: 0 }
                 : {
-                  x: piece.startX,
-                  y: piece.startY,
-                  opacity: 0,
-                  rotate: piece.rotateStart,
-                }
+                    x: piece.startX,
+                    y: piece.startY,
+                    opacity: 0,
+                    rotate: piece.rotateStart,
+                  }
             }
             transition={{
               delay: 0.05 * i,
