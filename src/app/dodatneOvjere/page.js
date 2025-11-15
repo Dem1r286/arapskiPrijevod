@@ -7,8 +7,8 @@ export const metadata = {
   },
 };
 
-import DodatneOvjerePage from "./DodatneOvjereClient";
+import DodatneOvjereClient from "./DodatneOvjereClient";
 
 export default function Page() {
-  return <DodatneOvjerePage />;
+  return <DodatneOvjereClient />;
 }
