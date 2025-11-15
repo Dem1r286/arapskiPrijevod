@@ -10,7 +10,7 @@ export const metadata = {
     description:
       "Detaljno uputstvo za dodatne ovjere i legalizaciju dokumenata prema državama i institucijama.",
     url: "https://www.arapskiprijevod.ba/dodatneOvjere",
-    siteName: "Stalni sudski tumač za arapski jezik",
+    siteName: "Stalni sudski tumač za arapski jezik u BiH",
     type: "website",
   },
 };

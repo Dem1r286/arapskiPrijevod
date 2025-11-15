@@ -17,12 +17,28 @@ const poppins = localFont({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://arapskiprijevod.ba"),
+  metadataBase: new URL("https://www.arapskiprijevod.ba"),
   title: "Stalni sudski tumač za arapski jezik u BiH",
   description:
     "Pružamo usluge prijevoda sa i na arapski jezik, uključujući dokumente, knjige, članke i usmene/simultane prijevode. Saznajte više o našim uslugama.",
   alternates: {
-    canonical: "/",
+    canonical: "https://www.arapskiprijevod.ba/",
+  },
+  openGraph: {
+    title: "Stalni sudski tumač za arapski jezik u BiH",
+    description:
+      "Pružamo usluge prijevoda sa i na arapski jezik, uključujući dokumente, knjige, članke i usmene/simultane prijevode.",
+    url: "https://www.arapskiprijevod.ba/",
+    siteName: "Stalni sudski tumač za arapski jezik u BiH",
+    type: "website",
+    images: [
+      {
+        url: "https://www.arapskiprijevod.ba/icons/logo.webp",
+        width: 1200,
+        height: 630,
+        alt: "Stalni sudski tumač za arapski jezik u BiH",
+      },
+    ],
   },
   icons: {
     icon: "/icons/favicon.webp",
