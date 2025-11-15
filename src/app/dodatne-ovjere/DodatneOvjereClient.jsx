@@ -1,6 +1,6 @@
 "use client";
 
-export default function DodatneOvjerePage() {
+export default function DodatneOvjereClient() {
   return (
     <div className="flex flex-col items-start justify-center w-screen relative mt-40 mb-30 md:mt-50 md:mb-40 px-8 sm:px-20 md:px-50">
       <div className="flex justify-center items-center flex-col mb-20 self-center text-center">
