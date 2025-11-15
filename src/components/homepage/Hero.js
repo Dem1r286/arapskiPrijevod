@@ -29,9 +29,9 @@ export default function Hero() {
         <h1 className="text-md xs:text-[19px] sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-black leading-tight mt-3">
           {t("Hero.h1-1")} <br /> {t("Hero.h1-2")}
         </h1>
-        <p className="text-black text-center text-[11px] sm:text-[13px] md:text-[16px] lg:text-[17px] w-[90%] md:w-[70%] mt-3 md:mt-5">
+        <h2 className="text-black text-center text-[11px] sm:text-[13px] md:text-[16px] lg:text-[17px] w-[90%] md:w-[70%] mt-3 md:mt-5">
           {t("Hero.subtext")}
-        </p>
+        </h2>
 
         <motion.button
           onClick={handleScroll}

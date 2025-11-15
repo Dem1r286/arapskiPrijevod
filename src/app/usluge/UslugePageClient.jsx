@@ -26,9 +26,9 @@ export default function UslugePageClient() {
           <h1 className="text-3xl 2xl:text-5xl font-bold mb-2 md:mb-4">
             {t("UslugePage.heading")}
           </h1>
-          <p className="px-7 md:px-0 text-black text-[13px] md:text-sm lg:text-md xl:text-lg">
+          <h2 className="px-7 md:px-0 text-black text-[13px] md:text-sm lg:text-md xl:text-lg">
             {t("UslugePage.subheading")}
-          </p>
+          </h2>
         </div>
 
         <div
@@ -51,9 +51,9 @@ export default function UslugePageClient() {
           </ul>
         </div>
 
-        <div className="flex justify-center items-center text-left md:text-center text-[13px] md:text-[15px] lg:text-lg font-semibold bg-[var(--secondary)] px-6 py-3 rounded-2xl border-3 border-black">
+        <h3 className="flex justify-center items-center text-left md:text-center text-[13px] md:text-[15px] lg:text-lg font-semibold bg-[var(--secondary)] px-6 py-3 rounded-2xl border-3 border-black">
           {t("UslugePage.bottomNotice")}
-        </div>
+        </h3>
       </div>
     </div>
   );

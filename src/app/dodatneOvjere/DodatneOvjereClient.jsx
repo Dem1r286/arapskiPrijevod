@@ -7,11 +7,11 @@ export default function DodatneOvjereClient() {
         <h1 className="text-3xl 2xl:text-5xl font-bold mb-4">
           Uputstvo za dodatne ovjere/legalizaciju dokumenata
         </h1>
-        <p className="text-black text-sm md:text-lg max-w-[1000px]">
+        <h2 className="text-black text-sm md:text-lg max-w-[1000px]">
           Ovisno o državi u koju se dokumenti isporučuju, potrebno ih je dodatno
           ovjeriti ili legalizirati (tzv. nadovjera) prema propisanom
           redoslijedu.
-        </p>
+        </h2>
       </div>
 
       <div className="text-sm md:text-[17px] text-black leading-relaxed space-y-6 max-w-[1200px] mx-auto">
