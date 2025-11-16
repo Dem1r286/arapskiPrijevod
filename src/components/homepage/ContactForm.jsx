@@ -125,9 +125,9 @@ export default function ContactForm() {
       {/* === Form Section === */}
       <div className="relative flex flex-col justify-center items-center w-full gap-10 pt-15 2xl:pt-30 min-w-[300px] max-w-[700px] rounded-xl bg-gradient-to-b from-[#222222] to-[#181818]">
         <div className="flex flex-col items-center gap-2">
-          <h7 className="text-2xl md:text-3xl 2xl:text-5xl font-semibold text-white text-center">
+          <p className="text-2xl md:text-3xl 2xl:text-5xl font-semibold text-white text-center">
             {t("Contact.heading")}
-          </h7>
+          </p>
           <p className="text-center text-white w-[85%] md:w-[90%] text-xs md:text-sm 2xl:text-[15px]">
             {t("Contact.subtext")}
           </p>

@@ -6,6 +6,7 @@ import Services from "@/components/homepage/Services";
 import TrustSection from "@/components/homepage/TrustSection";
 import DodatneOvjereButton from "@/components/homepage/dodatneOvjereButton";
 import ContactForm from "@/components/homepage/ContactForm";
+import Loader from "@/components/common/Loader";
 
 export default function Home() {
   useEffect(() => {
@@ -32,6 +33,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-between w-screen relative">
+
+       <Loader />
+
+
       <img
         src="/other/herobackground.webp"
         alt="Hero Background"
