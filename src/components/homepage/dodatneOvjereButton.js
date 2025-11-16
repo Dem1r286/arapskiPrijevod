@@ -12,6 +12,8 @@ export default function DodatneOvjereButton() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
+  if (i18n.language === "ar") return null;
+
   if (!ready) return null;
 
   const isArabic = i18n.language === "ar";

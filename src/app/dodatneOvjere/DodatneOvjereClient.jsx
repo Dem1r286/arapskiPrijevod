@@ -49,9 +49,9 @@ export default function DodatneOvjereClient() {
           ovjeru (spomenutu u nastavku).
         </p>
 
-        <h2 className="text-xl md:text-2xl font-semibold mt-10 mb-4">
+        <h3 className="text-xl md:text-2xl font-semibold mt-10 mb-4">
           Ministarstvo pravde BiH u Sarajevu
-        </h2>
+        </h3>
         <p>
           <strong>Uputstvo za uplatu:</strong>
         </p>
@@ -92,9 +92,9 @@ export default function DodatneOvjereClient() {
           sljedećeg <strong>2 KM</strong>.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-semibold mt-10 mb-4">
+        <h4 className="text-xl md:text-2xl font-semibold mt-10 mb-4">
           Ministarstvo vanjskih poslova BiH u Sarajevu
-        </h2>
+        </h4>
         <p>
           <strong>Uputstvo za uplatu:</strong>
         </p>
@@ -134,9 +134,9 @@ export default function DodatneOvjereClient() {
           Ovjera svakog dokumenta iznosi <strong>10,00 KM</strong>.
         </p>
 
-        <h2 className="text-xl md:text-2xl font-semibold mt-10 mb-4 text-black">
+        <h5 className="text-xl md:text-2xl font-semibold mt-10 mb-4 text-black">
           Ambasada države u koju se isporučuje dokument
-        </h2>
+        </h5>
         <p>
           Ukoliko dotična država nema ambasadu u BiH, potrebno je raspitati se o
           nadležnoj ambasadi u susjednim državama (Beograd, Zagreb, Podgorica,

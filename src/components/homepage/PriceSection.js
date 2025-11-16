@@ -41,19 +41,27 @@ export default function PriceSection() {
   const lines = [
     {
       text: t("Price.price-1"),
-      className: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold border-6 border-black px-5 py-3 sm:py-4 whitespace-nowrap bg-white ${isRTL ? "rotate-[5deg]" : "rotate-[-5deg]"} text-center`,
+      className: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold border-6 border-black px-5 py-3 sm:py-4 whitespace-nowrap bg-white ${
+        isRTL ? "rotate-[5deg]" : "rotate-[-5deg]"
+      } text-center`,
     },
     {
       text: t("Price.price-2"),
-      className: `text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black bg-[var(--secondary)] border-6 border-black px-5 py-2 sm:py-3 whitespace-nowrap ${isRTL ? "rotate-[-4deg] translate-x-[-50px]" : "rotate-[4deg] translate-x-[40px]"} text-center`,
+      className: `text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black bg-[var(--secondary)] border-6 border-black px-5 py-2 sm:py-3 whitespace-nowrap ${
+        isRTL ? "rotate-[-4deg] translate-x-[-50px]" : "rotate-[4deg] translate-x-[40px]"
+      } text-center`,
     },
     {
       text: t("Price.price-3"),
-      className: `text-md sm:text-lg md:text-xl lg:text-2xl font-black bg-black text-white border-6 border-black px-5 py-1 sm:py-2 whitespace-nowrap translate-y-[-5px] ${isRTL ? "rotate-[-7deg] translate-x-[5px]" : "rotate-[7deg] translate-x-[-5px]"} text-center`,
+      className: `text-md sm:text-lg md:text-xl lg:text-2xl font-black bg-black text-white border-6 border-black px-5 py-1 sm:py-2 whitespace-nowrap translate-y-[-5px] ${
+        isRTL ? "rotate-[-7deg] translate-x-[5px]" : "rotate-[7deg] translate-x-[-5px]"
+      } text-center`,
     },
     {
       text: t("Price.price-4"),
-      className: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold border-6 border-black px-5 py-3 sm:py-4 whitespace-nowrap bg-white translate-y-[-5px] ${isRTL ? "rotate-[-2deg] translate-x-[5px]" : "rotate-[2deg] translate-x-[-5px]"} text-center`,
+      className: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold border-6 border-black px-5 py-3 sm:py-4 whitespace-nowrap bg-white translate-y-[-5px] ${
+        isRTL ? "rotate-[-2deg] translate-x-[5px]" : "rotate-[2deg] translate-x-[-5px]"
+      } text-center`,
     },
   ];
 
@@ -133,7 +141,6 @@ export default function PriceSection() {
         transition: { type: "spring", stiffness: 100, damping: 12 },
       });
 
-      // Start paragraph animation immediately
       letterControls.set("hidden");
       letterControls.start("visible");
     }
@@ -165,7 +172,7 @@ export default function PriceSection() {
   };
 
   // Responsive direction and alignment
-  const sectionDirectionClass = `${isRTL ? "xl:flex-row-reverse" : "xl:flex-row"} flex-col items-center justify-center`;
+  const sectionDirectionClass = `${isRTL ? "xl:flex-row-reverse" : "xl:flex-row"} flex-col items-center justify-center ${isRTL ? "mt-60 md:mt-100" : ""}`;
   const textAlignmentClass = `${isRTL ? "text-right xl:items-end xl:text-left" : "text-left xl:items-start xl:text-left"} flex flex-col items-center justify-center`;
 
   return (
@@ -193,7 +200,7 @@ export default function PriceSection() {
         ))}
 
         <motion.p
-          key={i18n.language} // force remount on language change
+          key={i18n.language}
           dir={isRTL ? "rtl" : "ltr"}
           className="min-w-[320px] px-5 sm:px-10 md:px-5 max-w-[500px] text-[11px] sm:text-[12px] md:text-[14px] lg:text-[15px] mt-8 overflow-hidden"
           style={{ textAlign: isRTL ? "right" : "left" }}
