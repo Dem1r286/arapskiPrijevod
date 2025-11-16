@@ -2,6 +2,7 @@
 
 import { useTranslation } from "react-i18next";
 import "../../../i18n";
+import Loader from "@/components/common/Loader";
 
 export default function UslugePageClient() {
   const { t, ready, i18n } = useTranslation();
@@ -21,6 +22,10 @@ export default function UslugePageClient() {
       dir={isArabic ? "rtl" : "ltr"}
       className={`flex flex-col justify-center items-center mt-40 mb-30 md:mt-50 md:mb-40 px-6 ${directionClass}`}
     >
+
+      <Loader />
+
+
       <div className="max-w-6xl w-full flex flex-col items-center gap-16">
         <div className="w-full flex flex-col items-center text-center">
           <h1 className="text-3xl 2xl:text-5xl font-bold mb-2 md:mb-4">

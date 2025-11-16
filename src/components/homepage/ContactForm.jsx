@@ -17,12 +17,16 @@ export default function ContactForm() {
     message: "",
   });
   const [touched, setTouched] = useState({});
+  const [rateLimitError, setRateLimitError] = useState(false); // <-- new state
 
   if (!ready) return null;
-  9
-  const validateName = (name) => /^[A-Za-zÀ-ž]{2,}\s+[A-Za-zÀ-ž]{2,}$/.test(name.trim());
-  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
-  const validatePhone = (phone) => /^[+\d\s()-]{7,}$/.test(phone.trim());
+
+  const validateName = (name) =>
+    /^[A-Za-zÀ-ž]{2,}\s+[A-Za-zÀ-ž]{2,}$/.test(name.trim());
+  const validateEmail = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  const validatePhone = (phone) =>
+    /^[+\d\s()-]{7,}$/.test(phone.trim());
 
   const isFormValid = () =>
     validateName(formData.name) &&
@@ -30,8 +34,10 @@ export default function ContactForm() {
     validateEmail(formData.email) &&
     formData.message.trim().length > 0;
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.id]: e.target.value });
-  const handleBlur = (e) => setTouched({ ...touched, [e.target.id]: true });
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  const handleBlur = (e) =>
+    setTouched({ ...touched, [e.target.id]: true });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,6 +49,8 @@ export default function ContactForm() {
     }
 
     setStatus("sending");
+    setRateLimitError(false); // reset rate limit error
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -56,6 +64,10 @@ export default function ContactForm() {
         setTouched({});
         setTimeout(() => setStatus("idle"), 5000);
       } else {
+        if (res.status === 429) {
+          // handle rate limit error
+          setRateLimitError(true);
+        }
         setStatus("error");
         setTimeout(() => setStatus("idle"), 5000);
       }
@@ -76,7 +88,9 @@ export default function ContactForm() {
   const renderStatusIcon = () => {
     switch (status) {
       case "sending":
-        return <div className="w-5 h-5 border-4 border-t-[var(--secondary)] border-gray-300 rounded-full animate-spin"></div>;
+        return (
+          <div className="w-5 h-5 border-4 border-t-[var(--secondary)] border-gray-300 rounded-full animate-spin"></div>
+        );
       case "success":
         return <img src="/icons/check.webp" className="w-5" />;
       case "error":
@@ -87,8 +101,9 @@ export default function ContactForm() {
   };
 
   const renderErrorText = () => {
-    if (status !== "error") return null;
+    if (rateLimitError) return "Previše pokušaja. Pokušajte nakon 1 minute."; // <-- show rate limit message
 
+    if (status !== "error") return null;
     if (!validateName(formData.name)) return t("Errors.name");
     if (!validatePhone(formData.phone)) return t("Errors.phone");
     if (!validateEmail(formData.email)) return t("Errors.email");
@@ -97,9 +112,9 @@ export default function ContactForm() {
     return t("Errors.check");
   };
 
-
   const getInputClass = (id) => {
-    const base = "w-full bg-[#313131] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 text-white placeholder-gray-300";
+    const base =
+      "w-full bg-[#313131] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 text-white placeholder-gray-300";
     let isError = false;
     if (touched[id]) {
       if (id === "name") isError = !validateName(formData.name);
@@ -114,7 +129,9 @@ export default function ContactForm() {
   return (
     <div
       id="contactForm"
-      className={`relative flex flex-col justify-center items-center lg:min-w-[700px] mb-[20vh] 2xl:mb-[-30vh] px-5 lg:mr-[-30vw] z-50 ${isArabic ? "rtl" : "ltr"}`}
+      className={`relative flex flex-col justify-center items-center lg:min-w-[700px] mb-[20vh] 2xl:mb-[-30vh] px-5 lg:mr-[-30vw] z-50 ${
+        isArabic ? "rtl" : "ltr"
+      }`}
     >
       {/* === Binder Clips === */}
       <div className="w-full flex justify-between items-center px-15 z-20 mb-[-15px] lg:mb-[-30px]">
@@ -184,10 +201,8 @@ export default function ContactForm() {
           />
         </form>
 
-
         {/* === Button + Icon + Error === */}
         <div className="flex flex-col items-end w-full sm:w-[80%] md:w-[70%] px-10 md:px-5 mt-2 gap-5 gap-1 relative">
-          {/* Button + Icon */}
           <div className="flex items-center relative gap-2">
             <motion.button
               type="submit"
@@ -200,7 +215,6 @@ export default function ContactForm() {
               {t("Contact.button")}
             </motion.button>
 
-            {/* Status Icon */}
             {status !== "idle" && (
               <motion.div
                 initial={{ x: 0, opacity: 0 }}
@@ -227,9 +241,7 @@ export default function ContactForm() {
               </motion.p>
             )}
           </AnimatePresence>
-
         </div>
-
 
         {/* === Socials Section === */}
         <div className="flex justify-center items-center flex-col w-full rounded-b-xl py-10 gap-5 border-t-1 border-[#262626]">

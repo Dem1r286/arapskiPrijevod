@@ -1,8 +1,13 @@
 "use client";
 
+import Loader from "@/components/common/Loader";
+
 export default function DodatneOvjereClient() {
   return (
     <div className="flex flex-col items-start justify-center w-screen relative mt-40 mb-30 md:mt-50 md:mb-40 px-8 sm:px-20 md:px-50">
+
+      <Loader />
+
       <div className="flex justify-center items-center flex-col mb-20 self-center text-center">
         <h1 className="text-3xl 2xl:text-5xl font-bold mb-4">
           Uputstvo za dodatne ovjere/legalizaciju dokumenata
